@@ -1,9 +1,6 @@
 package tn.esprit.firstspringproject.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,4 +20,8 @@ public class Universite implements Serializable {
 
     private String nomUniversite ;
     private String adresse ;
+
+    // relation bidirectionnelle foyer universite (1-1)
+    @OneToOne
+    private Foyer foyer ;
 }

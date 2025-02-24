@@ -1,15 +1,13 @@
 package tn.esprit.firstspringproject.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Getter
@@ -22,4 +20,12 @@ public class Foyer implements Serializable {
     private long idFoyer ;
     private String nomFoyer ;
     private long capaciteFoyer;
+
+    // relation bidirectionnelle foyer bloc (1-*)
+    @OneToMany(cascade = CascadeType.ALL , mappedBy = "foyer")
+    private List<Bloc> blocs ;
+
+    // relation bidirectionnelle foyer universite (1-1)
+    @OneToOne (mappedBy = "foyer")
+    private Universite universite ;
 }

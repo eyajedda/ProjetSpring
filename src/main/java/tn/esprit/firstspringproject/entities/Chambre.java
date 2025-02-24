@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Getter
@@ -21,5 +22,17 @@ public class Chambre implements Serializable {
 
     @Enumerated(value = EnumType.STRING)
     private  TypeChambre typeC ;
+
+    // relation bidirectionnelle bloc chambre (1-*)
+    @ManyToOne
+    private Bloc bloc ;
+
+    //relation unidirectionnelle chambre reservation (1-*)
+    @OneToMany
+    private List<Reservation> reservations;
+
+
+
+
 
 }
