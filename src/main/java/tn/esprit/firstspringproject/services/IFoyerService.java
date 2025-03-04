@@ -1,5 +1,6 @@
 package tn.esprit.firstspringproject.services;
 
+import org.springframework.data.repository.CrudRepository;
 import tn.esprit.firstspringproject.entities.Foyer;
 
 import java.util.List;

@@ -2,6 +2,7 @@ package tn.esprit.firstspringproject.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import tn.esprit.firstspringproject.entities.Etudiant;
 import tn.esprit.firstspringproject.entities.Universite;
 import tn.esprit.firstspringproject.repositories.IUniversiteRepository;
 
@@ -13,7 +14,7 @@ public class UniversiteService implements IUniversiteService{
     IUniversiteRepository universiteRepository;
     @Override
     public List<Universite> retrieveAllUniversities() {
-        return (List<Universite>) universiteRepository;
+        return (List<Universite>) universiteRepository.findAll();
     }
 
     @Override
