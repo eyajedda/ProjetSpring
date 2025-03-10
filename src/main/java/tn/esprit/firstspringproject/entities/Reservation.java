@@ -26,4 +26,12 @@ public class Reservation implements Serializable {
     // relation bidirectionnelle etudiant reservation (*-*)
     @ManyToMany
     private List <Etudiant> etudiants ;
+
+    @ManyToOne
+    @JoinColumn(name = "chambre_id")
+    private Chambre chambre;
+
+    @ManyToOne
+    @JoinColumn(name = "etudiant_id")
+    private Etudiant etudiant;
 }

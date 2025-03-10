@@ -16,7 +16,7 @@ public class EtudiantController {
     @Autowired
     IEtudiantService etudiantService;
 
-    @PostMapping("/getetudiants")
+    @GetMapping("/getetudiants")
     public List<Etudiant> getEtudiants (){
         return (List<Etudiant>) etudiantService.retrieveAllEtudiants();
     }
@@ -26,17 +26,17 @@ public class EtudiantController {
         return (List<Etudiant>) etudiantService.addEtudiants(etudiants);
     }
 
-    @PostMapping("/updateetudiant")
+    @PutMapping("/updateetudiant")
     public Etudiant updateEtudiant (@RequestBody Etudiant etudiant){
         return etudiantService.updateEtudiant(etudiant);
     }
 
-    @PostMapping("/getetudiant/{id}")
+    @GetMapping("/getetudiant/{id}")
     public Etudiant getEtudiant (@PathVariable("id") long id){
         return etudiantService.retrieveEtudiant(id);
     }
 
-    @PostMapping("/removeetudiant/{id}")
+    @DeleteMapping("/removeetudiant/{id}")
     public void removeEtudiant (@PathVariable("id") long id){
         etudiantService.removeEtudiant(id);
     }

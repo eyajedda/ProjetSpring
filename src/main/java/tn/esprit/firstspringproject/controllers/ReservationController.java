@@ -7,6 +7,7 @@ import tn.esprit.firstspringproject.entities.Reservation;
 import tn.esprit.firstspringproject.services.IEtudiantService;
 import tn.esprit.firstspringproject.services.IReservationService;
 
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -15,19 +16,24 @@ public class ReservationController {
     @Autowired
     IReservationService reservationService;
 
-    @PostMapping("/getreservations")
+    @GetMapping("/getreservations")
     public List<Reservation> getReservations (){
         return reservationService.retrieveAllReservation();
     }
 
-    @PostMapping("/updatereservation")
+    @PutMapping("/updatereservation")
     public Reservation updateReservation (@RequestBody Reservation reservation){
         return reservationService.updateReservation(reservation);
     }
 
-    @PostMapping("/getreservation/{id}")
+    @GetMapping("/getreservation/{id}")
     public Reservation getReservation (@PathVariable String id){
         return reservationService.retrieveReservation(id);
+    }
+
+    @GetMapping ("/getRbyAnneeAndUniversite")
+    public List<Reservation> getReservationsByAnneeUniversitaireAndUniversite(@RequestParam Date anneeUniversite, @RequestParam String nomUniversite){
+        return reservationService.getReservationsByAnneeUniversitaireAndUniversite(anneeUniversite, nomUniversite);
     }
 
 }

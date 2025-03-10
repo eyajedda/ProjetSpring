@@ -15,7 +15,7 @@ public class FoyerController {
     @Autowired
     IFoyerService foyerService;
 
-    @PostMapping("/getfoyers")
+    @GetMapping("/getfoyers")
     public List<Foyer> getFoyers (){
         return (List<Foyer>) foyerService.retrieveAllFoyers();
     }
@@ -25,17 +25,17 @@ public class FoyerController {
         return foyerService.addFoyer(foyer);
     }
 
-    @PostMapping("/updatefoyer")
+    @PutMapping("/updatefoyer")
     public Foyer updateFoyer (@RequestBody Foyer foyer){
         return foyerService.updateFoyer(foyer);
     }
 
-    @PostMapping("/getfoyer/{id}")
+    @GetMapping("/getfoyer/{id}")
     public Foyer getFoyer (@PathVariable("id") long id){
         return foyerService.retrieveFoyer(id);
     }
 
-    @PostMapping("/removefoyer/{id}")
+    @DeleteMapping("/removefoyer/{id}")
     public void removeFoyer (@PathVariable("id") long id){
         foyerService.removeFoyer(id);
     }

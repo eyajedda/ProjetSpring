@@ -14,7 +14,7 @@ public class UniversiteController {
     @Autowired
     IUniversiteService universiteService;
 
-    @PostMapping("/getuniversites")
+    @GetMapping("/getuniversites")
     public List<Universite> getUniversites (){
         return universiteService.retrieveAllUniversities();
     }
@@ -24,12 +24,12 @@ public class UniversiteController {
         return universiteService.addUniversite(universite);
     }
 
-    @PostMapping("/getuniversite/{id}")
+    @GetMapping("/getuniversite/{id}")
     public Universite getUniversite (@PathVariable Long id){
         return universiteService.retrieveUniversite(id);
     }
 
-    @PostMapping("/updateuniversite")
+    @PutMapping("/updateuniversite")
     public Universite updateUniversite (@RequestBody Universite universite){
         return universiteService.updateUniversite(universite);
     }

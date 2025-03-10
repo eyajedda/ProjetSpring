@@ -14,7 +14,7 @@ public class BlocController {
     @Autowired
     IBlocService blocService;
 
-    @PostMapping("/getblocs")
+    @GetMapping("/getblocs")
     public List<Bloc> getBlocs (){
         return (List<Bloc>) blocService.retrieveBlocs();
     }
@@ -24,17 +24,17 @@ public class BlocController {
         return blocService.addBloc(bloc);
     }
 
-    @PostMapping("/updatebloc")
+    @PutMapping("/updatebloc")
     public Bloc updateBloc (@RequestBody Bloc bloc){
         return blocService.updateBloc(bloc);
     }
 
-    @PostMapping("/getbloc/{id}")
+    @GetMapping("/getbloc/{id}")
     public Bloc getBloc (@PathVariable("id") long id){
         return blocService.retrieveBloc(id);
     }
 
-    @PostMapping("/removebloc/{id}")
+    @DeleteMapping("/removebloc/{id}")
     public void removeBloc (@PathVariable("id") long id){
         blocService.removeBloc(id);
     }
