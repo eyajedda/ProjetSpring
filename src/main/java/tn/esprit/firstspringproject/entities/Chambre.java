@@ -27,11 +27,17 @@ public class Chambre implements Serializable {
     @ManyToOne
     private Bloc bloc ;
 
+    public void setBloc(Bloc bloc) {
+        this.bloc = bloc;
+    }
+
+    public Bloc getBloc() {
+        return bloc;
+    }
+
     //relation unidirectionnelle chambre reservation (1-*)
     @OneToMany
     private List<Reservation> reservations;
-
-
 
 
 

@@ -28,4 +28,10 @@ public interface IChambreRepository extends CrudRepository<Chambre, Long> {
     // Spring Data JPA Keywords
     List<Chambre> findByBlocIdBlocAndTypeC(long idBloc, TypeChambre typeC);
 
+    List<Chambre> findAllByIdChambre (List<Long> numChambres);
+
+    Chambre findByBlocId(long idBloc);
+
+    List<Chambre> findByUniversiteNom(String nomUniversite);
+
 }

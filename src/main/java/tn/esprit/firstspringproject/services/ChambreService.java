@@ -3,8 +3,8 @@ package tn.esprit.firstspringproject.services;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import tn.esprit.firstspringproject.entities.Chambre;
-import tn.esprit.firstspringproject.entities.TypeChambre;
+import tn.esprit.firstspringproject.entities.*;
+import tn.esprit.firstspringproject.repositories.IBlocRepository;
 import tn.esprit.firstspringproject.repositories.IChambreRepository;
 
 import java.util.List;
@@ -13,6 +13,8 @@ import java.util.List;
 public class ChambreService implements IChambreService{
     @Autowired
     IChambreRepository chambreRepository;
+    @Autowired
+    IBlocRepository blocRepository;
 
     @Override
     public List<Chambre> retrieveAllChambres() {
@@ -44,5 +46,14 @@ public class ChambreService implements IChambreService{
         return chambreRepository.findByBlocIdBlocAndTypeC(idBloc ,typeC);
     }
 
+    @Override
+    public List<Chambre> getChambresParNomUniversite(String nomUniversite) {
+        return chambreRepository.findByUniversiteNom(nomUniversite);
+    }
+
+
+
+
 
 }
+

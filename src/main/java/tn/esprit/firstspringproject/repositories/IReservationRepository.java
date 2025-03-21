@@ -15,5 +15,7 @@ public interface IReservationRepository extends CrudRepository <Reservation, Str
             "AND FUNCTION('YEAR', r.anneeUniversitaire) = FUNCTION('YEAR', :anneeUniversitaire)")
     List<Reservation> findReservationsByAnneeUniversitaireAndNomUniversite(Date anneeUniversitaire, String nomUniversite);
 
+
+    public Reservation findByEtudiantCin(long cinEtudiant);
 }
 

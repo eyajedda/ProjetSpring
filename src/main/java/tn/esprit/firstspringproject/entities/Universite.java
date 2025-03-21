@@ -22,6 +22,15 @@ public class Universite implements Serializable {
     private String adresse ;
 
     // relation bidirectionnelle foyer universite (1-1)
+    //bout master
     @OneToOne
     private Foyer foyer ;
+
+    public void setFoyer(Foyer foyer) {
+        this.foyer = foyer;
+    }
+
+    public Foyer getFoyer() {
+        return foyer;
+    }
 }

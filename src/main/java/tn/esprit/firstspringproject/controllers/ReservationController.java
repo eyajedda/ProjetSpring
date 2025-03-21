@@ -36,4 +36,16 @@ public class ReservationController {
         return reservationService.getReservationsByAnneeUniversitaireAndUniversite(anneeUniversite, nomUniversite);
     }
 
+    @PostMapping("/ajouter/{idBloc}/{cinEtudiant}")
+    public Reservation ajouterReservation(@PathVariable long idBloc, @PathVariable long cinEtudiant) {
+        return reservationService.ajouterReservation(idBloc, cinEtudiant);
+    }
+
+
+    @DeleteMapping("/annuler/{cinEtudiant}")
+    public Reservation annulerReservation(@PathVariable long cinEtudiant) {
+        return reservationService.annulerReservation(cinEtudiant);
+    }
+
+
 }

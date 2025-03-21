@@ -5,4 +5,5 @@ import tn.esprit.firstspringproject.entities.Universite;
 
 public interface IUniversiteRepository extends CrudRepository<Universite, Long> {
 
+    public Universite findByNomUniversite (String nomUniversite);
 }

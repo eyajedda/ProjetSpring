@@ -40,6 +40,10 @@ public class BlocController {
     }
 
 
+    @PostMapping("/affecter-chambres/{idBloc}")
+    public Bloc affecterChambresABloc(@RequestBody List<Long> numChambres, @PathVariable long idBloc) {
+        return blocService.affecterChambresABloc(numChambres, idBloc);
+    }
 
 
 

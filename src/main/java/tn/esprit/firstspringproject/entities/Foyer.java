@@ -26,6 +26,7 @@ public class Foyer implements Serializable {
     private List<Bloc> blocs ;
 
     // relation bidirectionnelle foyer universite (1-1)
+    // bout slave
     @OneToOne (mappedBy = "foyer")
     private Universite universite ;
 }
