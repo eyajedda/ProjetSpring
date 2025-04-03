@@ -37,7 +37,7 @@ public class ReservationController {
     }
 
     @PostMapping("/ajouter/{idBloc}/{cinEtudiant}")
-    public Reservation ajouterReservation(@PathVariable long idBloc, @PathVariable long cinEtudiant) {
+    public Reservation ajouterReservation( @PathVariable long idBloc, @PathVariable long cinEtudiant) {
         return reservationService.ajouterReservation(idBloc, cinEtudiant);
     }
 

@@ -3,6 +3,7 @@ package tn.esprit.firstspringproject.repositories;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 import tn.esprit.firstspringproject.entities.Chambre;
 import tn.esprit.firstspringproject.entities.TypeChambre;
 
@@ -28,10 +29,13 @@ public interface IChambreRepository extends CrudRepository<Chambre, Long> {
     // Spring Data JPA Keywords
     List<Chambre> findByBlocIdBlocAndTypeC(long idBloc, TypeChambre typeC);
 
-    List<Chambre> findAllByIdChambre (List<Long> numChambres);
+    List<Chambre> findAllByIdChambreIn(List<Long> numChambres);
 
-    Chambre findByBlocId(long idBloc);
 
-    List<Chambre> findByUniversiteNom(String nomUniversite);
 
+    List<Chambre> findByBloc_IdBloc(long idBloc);
+
+
+    @Query("SELECT c FROM Chambre c WHERE c.bloc IN (SELECT b FROM Bloc b WHERE b.foyer IN (SELECT f FROM Foyer f WHERE f.universite.nomUniversite = :nomUniversite))")
+    List<Chambre> findByNomUniversite(@Param("nomUniversite") String nomUniversite);
 }

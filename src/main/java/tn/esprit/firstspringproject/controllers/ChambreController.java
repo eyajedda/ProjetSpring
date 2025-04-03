@@ -3,11 +3,8 @@ package tn.esprit.firstspringproject.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import tn.esprit.firstspringproject.entities.Bloc;
 import tn.esprit.firstspringproject.entities.Chambre;
 import tn.esprit.firstspringproject.entities.TypeChambre;
-import tn.esprit.firstspringproject.services.BlocService;
-import tn.esprit.firstspringproject.services.IBlocService;
 import tn.esprit.firstspringproject.services.IChambreService;
 
 import java.util.List;
@@ -20,6 +17,7 @@ public class ChambreController {
 
     @GetMapping("/getchambres")
     public List<Chambre> getChambres (){
+
         return (List<Chambre>) chambreService.retrieveAllChambres();
     }
 

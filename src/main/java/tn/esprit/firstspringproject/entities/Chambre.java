@@ -1,5 +1,7 @@
 package tn.esprit.firstspringproject.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,6 +16,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+
 public class Chambre implements Serializable {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
@@ -25,7 +28,7 @@ public class Chambre implements Serializable {
 
     // relation bidirectionnelle bloc chambre (1-*)
     @ManyToOne
-    private Bloc bloc ;
+    private Bloc bloc;
 
     public void setBloc(Bloc bloc) {
         this.bloc = bloc;
@@ -40,5 +43,14 @@ public class Chambre implements Serializable {
     private List<Reservation> reservations;
 
 
+    public List<Reservation> getReservations() {
+        return reservations;
+    }
+    public TypeChambre getTypeC() {
+        return this.typeC;
+    }
 
+    public long getNumeroChambre() {
+        return this.numeroChambre;
+    }
 }

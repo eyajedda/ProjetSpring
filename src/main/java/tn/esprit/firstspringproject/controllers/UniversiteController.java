@@ -1,5 +1,6 @@
 package tn.esprit.firstspringproject.controllers;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.firstspringproject.entities.*;
@@ -35,6 +36,7 @@ public class UniversiteController {
     }
 
     @PutMapping("/affecter-foyer/{idFoyer}/{nomUniversite}")
+    @JsonIgnore
     public Universite affecterFoyerAUniversite(
             @PathVariable long idFoyer,
             @PathVariable String nomUniversite) {

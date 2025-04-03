@@ -23,6 +23,7 @@ public class Reservation implements Serializable {
     private Date anneeUniversitaire;
     private boolean estValide;
 
+    private String numReservation;
     // relation bidirectionnelle etudiant reservation (*-*)
     @ManyToMany
     private List <Etudiant> etudiants ;
@@ -34,4 +35,33 @@ public class Reservation implements Serializable {
     @ManyToOne
     @JoinColumn(name = "etudiant_id")
     private Etudiant etudiant;
+
+
+    public void setIdReservation (String id) {
+        this.idReservation = id;
+    }
+
+    public String getIdReservation () {
+        return this.idReservation;
+    }
+
+    public void setChambre(Chambre chambre) {
+        this.chambre = chambre;
+    }
+
+    public void setEtudiant(Etudiant etudiant) {
+        this.etudiant = etudiant;
+    }
+
+    public void setEstValide(boolean estValide) {
+        this.estValide = estValide;
+    }
+
+    public void setNumReservation(String numReservation) {
+        this.numReservation = numReservation;
+    }
+
+    public void setAnneeUniversitaire(Date anneeUniversitaire) {
+        this.anneeUniversitaire = anneeUniversitaire;
+    }
 }

@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.firstspringproject.entities.Bloc;
 import tn.esprit.firstspringproject.entities.Etudiant;
+import tn.esprit.firstspringproject.services.BlocService;
 import tn.esprit.firstspringproject.services.IBlocService;
 
 import java.util.List;

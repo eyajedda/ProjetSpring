@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import tn.esprit.firstspringproject.entities.*;
 import tn.esprit.firstspringproject.repositories.IBlocRepository;
 import tn.esprit.firstspringproject.repositories.IChambreRepository;
+import tn.esprit.firstspringproject.repositories.IUniversiteRepository;
 
 import java.util.List;
 
@@ -13,8 +14,9 @@ import java.util.List;
 public class ChambreService implements IChambreService{
     @Autowired
     IChambreRepository chambreRepository;
+
     @Autowired
-    IBlocRepository blocRepository;
+    IUniversiteRepository universiteRepository;
 
     @Override
     public List<Chambre> retrieveAllChambres() {
@@ -22,13 +24,13 @@ public class ChambreService implements IChambreService{
     }
 
     @Override
-    public Chambre addChambre(Chambre c) {
-        return chambreRepository.save(c);
+    public Chambre addChambre(Chambre chambre) {
+        return chambreRepository.save(chambre);
     }
 
     @Override
-    public Chambre updateChambre(Chambre c) {
-        return chambreRepository.save(c);
+    public Chambre updateChambre(Chambre chambre) {
+        return chambreRepository.save(chambre);
     }
 
     @Override
@@ -48,7 +50,17 @@ public class ChambreService implements IChambreService{
 
     @Override
     public List<Chambre> getChambresParNomUniversite(String nomUniversite) {
-        return chambreRepository.findByUniversiteNom(nomUniversite);
+        System.out.println("🔍 Recherche des chambres pour l'université: " + nomUniversite);
+
+        List<Chambre> chambres = chambreRepository.findByNomUniversite(nomUniversite);
+
+        if (chambres.isEmpty()) {
+            throw new RuntimeException("Aucune chambre trouvée pour l'université: " + nomUniversite);
+        }
+
+        System.out.println("✅ Nombre de chambres trouvées: " + chambres.size());
+
+        return chambres;
     }
 
 

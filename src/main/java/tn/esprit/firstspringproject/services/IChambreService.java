@@ -9,8 +9,8 @@ import java.util.List;
 public interface IChambreService {
 
     List<Chambre> retrieveAllChambres();
-    Chambre addChambre(Chambre c);
-    Chambre updateChambre (Chambre c);
+    Chambre addChambre(Chambre chambre);
+    Chambre updateChambre (Chambre chambre);
     Chambre retrieveChambre (long idChambre);
 
     List<Chambre> getChambresNonReserveParNomUniversiteEtTypeChambre(String nomUniversite, TypeChambre type);
