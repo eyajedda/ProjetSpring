@@ -48,6 +48,7 @@ public class FoyerService implements IFoyerService{
         foyer = foyerRepository.save(foyer);
         universite.setFoyer(foyer);
 
-        return foyerRepository.save(foyer);
+        // université est le bout master , donc c'est lui qui va agir
+        return foyer;
     }
 }
